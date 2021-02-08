@@ -1,5 +1,5 @@
 # AnimaisFantasticos
 ## Project for exercising JS ES6 and another things
 
-Technologies used:
+### Technologies used:
 HTML, CSS, JavaScript ES6, babel, webpack, git, api and OOP,
