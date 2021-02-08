@@ -30,7 +30,7 @@ export class Slide {
       this.dist.startX = event.clientX;
       movetype = 'mousemove';
     } else {
-      this.dist.startX = event.changeTouches[0].clientX;
+      this.dist.startX = event.changedTouches[0].clientX;
       movetype = 'touchmove';
     }
     this.wrapper.addEventListener(movetype, this.onMove);
@@ -38,7 +38,7 @@ export class Slide {
   }
 
   onMove(event) {
-    const pointerPosition = (event.type === 'mousemove') ? event.clientX : event.changeTouches[0].clientX;
+    const pointerPosition = (event.type === 'mousemove') ? event.clientX : event.changedTouches[0].clientX;
     const finalPosition = this.updatePosition(pointerPosition);
     this.moveSlide(finalPosition);
   }
@@ -67,6 +67,8 @@ export class Slide {
     this.wrapper.addEventListener('mouseup', this.onEnd);
     this.wrapper.addEventListener('touchend', this.onEnd);
   }
+
+  // Slides config
 
   slidePosition(slide) {
     const margin = (this.wrapper.offsetWidth - slide.offsetWidth) / 2;
@@ -126,8 +128,10 @@ export class Slide {
     this.onStart = this.onStart.bind(this);
     this.onMove = this.onMove.bind(this);
     this.onEnd = this.onEnd.bind(this);
+
     this.activePrevSlide = this.activePrevSlide.bind(this);
     this.activeNextSlide = this.activeNextSlide.bind(this);
+
     this.onResize = debounce(this.onResize.bind(this), 200);
   }
 
@@ -185,6 +189,7 @@ export default class SlideNav extends Slide {
   addControl(customControl) {
     this.control = document.querySelector(customControl) || this.createControl();
     this.controlArray = [...this.control.children];
+
     this.activeControlItem();
     this.controlArray.forEach(this.eventControl);
   }
