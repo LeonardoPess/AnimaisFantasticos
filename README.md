@@ -1,7 +1,7 @@
 # AnimaisFantasticos
 
-<div style="margin: 0 auto; text-align: center; height:500px">
-  <img style="width: 100px; height: 400px" src="AnimaisFantasticos.png" alt="light mode">
+<div style="margin: 0 auto; text-align: center">
+  <img style="width: 100px; height: 100px" src="AnimaisFantasticos.png" alt="light mode">
 </div>
 
 Projeto feito para práticar e aprender JavaScript no curso de ES6 da Origamid
